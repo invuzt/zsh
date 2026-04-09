@@ -1,11 +1,1 @@
-pkg install git
-pkg install zsh
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestion
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/plugins/zsh-syntax-highlighting
-cat > ~/.zshrc << 'EOF'
-source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-PROMPT='%F{green}┌─[%F{blue}%~%F{green}]
-└─%F{yellow}$%f '
-EOF
+sed -i 's|mirror.rinarin.dev|mirror.libreserver.org|g' $PREFIX/etc/apt/sources.list && pkg update && pkg upgrade -y && pkg install zsh git -y && mkdir -p ~/.zsh/plugins && git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/plugins/zsh-syntax-highlighting && echo "source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh\nsource ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh\n\nPROMPT='%F{green}┌─[%F{blue}%~%F{green}]\n└─%F{yellow}$%f '" > ~/.zshrc && chsh -s zsh && zsh
