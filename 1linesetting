@@ -1,1 +1,6 @@
-sed -i 's|mirror.rinarin.dev|mirror.libreserver.org|g' $PREFIX/etc/apt/sources.list && pkg update && pkg upgrade -y && pkg install zsh git -y && mkdir -p ~/.zsh/plugins && git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/plugins/zsh-syntax-highlighting && echo "source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh\nsource ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh\n\nPROMPT='%F{green}┌─[%F{blue}%~%F{green}]\n└─%F{yellow}$%f '" > ~/.zshrc && chsh -s zsh && zsh
+pkg update && pkg upgrade -y && pkg install zsh git -y && \
+mkdir -p ~/.zsh/plugins && \
+[ ! -d ~/.zsh/plugins/zsh-autosuggestions ] && git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions; \
+[ ! -d ~/.zsh/plugins/zsh-syntax-highlighting ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/plugins/zsh-syntax-highlighting; \
+printf "source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh\nsource ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh\n\nPROMPT='%%F{green}┌─[%%F{blue}%%~%%F{green}]\n└─%%F{yellow}$%%f '\n" > ~/.zshrc && \
+chsh -s zsh && zsh
