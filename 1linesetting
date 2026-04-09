@@ -1,13 +1,7 @@
-# 1. Zsh saja (tanpa Oh-My-Zsh)
+pkg install git
 pkg install zsh
-
-# 2. Auto-suggestion (plugin ringan)
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
-
-# 3. Syntax highlighting (opsional, biar perintah berwarna)
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestion
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/plugins/zsh-syntax-highlighting
-
-# 4. Prompt kustom (buat sendiri)
 cat > ~/.zshrc << 'EOF'
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
