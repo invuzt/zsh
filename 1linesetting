@@ -37,3 +37,12 @@ bash intip.sh
 
 pkg install rust
 pkg install rust-std-wasm32-unknown-unknown
+
+ganti font
+# Download file zip font
+curl -L -o font.zip https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip
+pkg install unzip
+unzip font.zip -d jetbrains_font
+mkdir -p ~/.termux
+cp jetbrains_font/fonts/ttf/JetBrainsMono-Regular.ttf ~/.termux/font.ttf
+termux-reload-settings
