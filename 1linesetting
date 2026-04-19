@@ -34,3 +34,6 @@ EOF
 
 bash intip.sh
 
+
+pkg install rust
+pkg install rust-std-wasm32-unknown-unknown
